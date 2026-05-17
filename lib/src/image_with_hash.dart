@@ -1,7 +1,9 @@
+import 'dart:async';
 import 'dart:ui' as ui;
 
-import 'package:blurhash_ffi/blurhash_ffi.dart';
+import 'package:blurhash_dart/blurhash_dart.dart';
 import 'package:flutter/material.dart';
+import 'package:image/image.dart' as img;
 
 import 'blur_decay_painter.dart';
 import 'decay_pattern.dart';
@@ -106,16 +108,24 @@ class _ImageWithHashState extends State<ImageWithHash>
 
   Future<void> _decodeBlur() async {
     try {
-      final image = await BlurhashFFI.decode(
-        widget.imageHash,
-        width: 32,
-        height: 32,
+      const int w = 32, h = 32;
+      final pixels = BlurHash.decode(widget.imageHash)
+          .toImage(w, h)
+          .getBytes(order: img.ChannelOrder.rgba);
+      final completer = Completer<ui.Image>();
+      ui.decodeImageFromPixels(
+        pixels,
+        w,
+        h,
+        ui.PixelFormat.rgba8888,
+        completer.complete,
       );
+      final uiImage = await completer.future;
       if (_disposed) {
-        image.dispose();
+        uiImage.dispose();
         return;
       }
-      if (mounted) setState(() => _blurImage = image);
+      if (mounted) setState(() => _blurImage = uiImage);
     } catch (e) {
       debugPrint('[hashed_image] BlurHash decode failed: $e');
     }

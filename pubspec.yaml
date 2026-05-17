@@ -5,9 +5,9 @@ description: >-
   image has loaded. Simply provide imageUrl and imageHash — the rest is handled
   for you.
 version: 0.0.1
-homepage: https://github.com/yourusername/hashed_image
-repository: https://github.com/yourusername/hashed_image
-issue_tracker: https://github.com/yourusername/hashed_image/issues
+homepage: https://github.com/ObidjonJoraboyev/hashed_image
+repository: https://github.com/ObidjonJoraboyev/hashed_image
+issue_tracker: https://github.com/ObidjonJoraboyev/hashed_image/issues
 
 environment:
   sdk: ^3.3.0
@@ -16,7 +16,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  blurhash_ffi: ^1.0.3
+  blurhash_dart: ^1.2.1
+  image: ^4.8.0
 
 dev_dependencies:
   flutter_test:

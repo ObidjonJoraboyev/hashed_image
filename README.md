@@ -1,5 +1,13 @@
 # hashed_image
 
+<p align="center">
+  <img
+    src="https://raw.githubusercontent.com/ObidjonJoraboyev/hashed_image/main/doc/demo.gif"
+    alt="hashed_image demo"
+    width="320"
+  />
+</p>
+
 A Flutter widget that displays a network image with an organic **BlurHash**
 placeholder. The blur dissolves away using a smooth blob-decay animation once
 the real image has loaded — no jarring pop-in, no loading spinners.
@@ -13,8 +21,8 @@ the real image has loaded — no jarring pop-in, no loading spinners.
 - Concurrent animation throttling: at most 2 decay animations run
   simultaneously so a grid of 20+ images won't spike the GPU
 - Safe lifecycle management: no zombie animations after dispose
-- Built on [`blurhash_ffi`](https://pub.dev/packages/blurhash_ffi) for fast
-  native decoding
+- Built on [`blurhash_dart`](https://pub.dev/packages/blurhash_dart) — pure
+  Dart, works on **all platforms** including Web
 
 ---
 
@@ -112,8 +120,7 @@ void _onRefresh() {
 - BlurHash strings are typically returned by your API alongside the image URL.
   You can generate them server-side using the
   [BlurHash algorithm](https://blurha.sh/).
-- This package uses `blurhash_ffi` which requires native code. Make sure your
-  Flutter project supports the platforms you target (iOS, Android, macOS,
-  Linux, Windows).
+- This package uses `blurhash_dart` (pure Dart) and works on all Flutter
+  platforms: iOS, Android, macOS, Linux, Windows, and **Web**.
 - Found a bug or have a feature request? Open an issue on
-  [GitHub](https://github.com/yourusername/hashed_image/issues).
+  [GitHub](https://github.com/ObidjonJoraboyev/hashed_image/issues).
