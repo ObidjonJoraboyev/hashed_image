@@ -2,7 +2,7 @@ name: hashed_image
 description: >-
   A Flutter widget that shows network images with an animated BlurHash
   placeholder that dissolves away using a blob-decay animation once loaded.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/ObidjonJoraboyev/hashed_image
 repository: https://github.com/ObidjonJoraboyev/hashed_image
 issue_tracker: https://github.com/ObidjonJoraboyev/hashed_image/issues
