@@ -84,10 +84,10 @@ class _ImageWithHashState extends State<ImageWithHash>
   @override
   void initState() {
     super.initState();
-    _decay = AnimationController(vsync: this, duration: widget.animationDuration)
-      ..addStatusListener(_onStatus);
-    _decayCurved =
-        CurvedAnimation(parent: _decay, curve: Curves.easeInOutSine);
+    _decay =
+        AnimationController(vsync: this, duration: widget.animationDuration)
+          ..addStatusListener(_onStatus);
+    _decayCurved = CurvedAnimation(parent: _decay, curve: Curves.easeInOutSine);
     _pattern = DecayPattern.generate(
       seed: widget.imageUrl.hashCode ^ widget.imageHash.hashCode,
     );
@@ -174,8 +174,7 @@ class _ImageWithHashState extends State<ImageWithHash>
               widget.imageUrl,
               fit: widget.fit,
               gaplessPlayback: true,
-              frameBuilder:
-                  (context, child, frame, wasSynchronouslyLoaded) {
+              frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
                 if (frame != null && !_loadFired) {
                   _loadFired = true;
                   WidgetsBinding.instance.addPostFrameCallback((_) {

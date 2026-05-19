@@ -78,10 +78,8 @@ class BlurDecayPainter extends CustomPainter {
     }
   }
 
-  void _drawBlob(
-      Canvas canvas, Offset center, double radius, DecayBlob blob) {
-    final outer =
-        radius * (1.0 + kBlobRadiusJitter + _gradientOuterPadding);
+  void _drawBlob(Canvas canvas, Offset center, double radius, DecayBlob blob) {
+    final outer = radius * (1.0 + kBlobRadiusJitter + _gradientOuterPadding);
     final coreEnd = (1.0 - _edgeSoftness).clamp(0.001, 0.08);
 
     final colors = <ui.Color>[
